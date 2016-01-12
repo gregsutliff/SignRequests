@@ -1,19 +1,29 @@
 class RequestsController < ApplicationController
   def create
-    submission = params[:request]
-    requester = submission[:requester]
-    location = submission[:location]
-    item_number = submission[:item_number]
-    description = submission[:description]
-    Request.create(:requester => requester,
-                    :location => location,
-                    :item_number => item_number,
-                    :description => description
-      )
+    @requests = Request.order(created_at: :desc)
+    Request.create(request_params)
+    respond_to do |format|
+      format.html
+      format.json
+      format.js
+    end
+    
   end
 
   def main
-    @requests = Request.all
+    @requests = Request.order(created_at: :desc)
     @request = Request.new
+    respond_to do |format|
+      format.html
+      format.json
+      format.js
+    end
+    
   end
+
+  private
+
+    def request_params
+      params.require(:request).permit(:requester, :location, :item_number, :description)
+    end
 end

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  post 'requests/create' => 'requests#create', as: 'requests'
-
-  get 'requests/main'
-
+  resources :requests
   root 'requests#main'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
