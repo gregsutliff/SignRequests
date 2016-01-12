@@ -1,7 +1,7 @@
 <%= bootstrap_form_for @request, :remote => true, :authenticity_token => true do |f| %>
-	<%= f.text_field :requester %> 
-	<%= f.text_field :location %>
-	<%= f.text_field :item_number %>
-	<%= f.text_field :description %>
+	<%= f.text_field :requester, class: "form_content" %> 
+	<%= f.text_field :location, class: "form_content" %>
+	<%= f.text_field :item_number, class: "form_content" %>
+	<%= f.text_field :description, class: "form_content" %>
 	<%= f.primary "Submit" %>
 <% end %>
