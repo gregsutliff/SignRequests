@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester: MyString
+  location: 1
+  item_number: MyString
+  description: MyString
+  fulfilled?: false
+  fulfilled_on: 2016-01-12 12:01:34
+
+two:
+  requester: MyString
+  location: 1
+  item_number: MyString
+  description: MyString
+  fulfilled?: false
+  fulfilled_on: 2016-01-12 12:01:34
