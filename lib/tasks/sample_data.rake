@@ -11,6 +11,7 @@ namespace :db do
       description = Faker::Commerce.product_name
       Request.create!(:requester => requester,
                       :location => location,
+                      :sign_type => "Hook",
                       :item_number => item_number,
                       :description => description,
                       :fulfilled_on => Faker::Date.backward(4))

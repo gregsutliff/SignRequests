@@ -38,6 +38,6 @@ class RequestsController < ApplicationController
   private
 
     def request_params
-      params.require(:request).permit(:requester, :location, :item_number, :description, :fulfilled_on)
+      params.require(:request).permit(:requester, :location, :item_number, :sign_type, :description, :fulfilled_on)
     end
 end
