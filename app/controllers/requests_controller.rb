@@ -22,10 +22,11 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request = Request.find(params[:id])
-    @request.fulfilled_on = params[:fulfilled_on]
-    @request.save
+    request = Request.find(params[:id])
+    request.fulfilled_on = params[:fulfilled_on]
+    request.save
     @requests = Request.order(created_at: :desc)
+    @request = Request.new
     render "main"
   end
 
