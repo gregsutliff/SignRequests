@@ -12,7 +12,8 @@ namespace :db do
       Request.create!(:requester => requester,
                       :location => location,
                       :item_number => item_number,
-                      :description => description)
+                      :description => description,
+                      :fulfilled_on => Faker::Date.backward(4))
     end
   end
 end

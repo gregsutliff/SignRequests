@@ -21,9 +21,17 @@ class RequestsController < ApplicationController
     
   end
 
+  def update
+    @request = Request.find(params[:id])
+    @request.fulfilled_on = params[:fulfilled_on]
+    @request.save
+    @requests = Request.order(created_at: :desc)
+    render "main"
+  end
+
   private
 
     def request_params
-      params.require(:request).permit(:requester, :location, :item_number, :description)
+      params.require(:request).permit(:requester, :location, :item_number, :description, :fulfilled_on)
     end
 end

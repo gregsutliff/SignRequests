@@ -5,16 +5,31 @@
 		<th>Item No</th>
 		<th>Description</th>
 		<th>Request Date</th>
+		<th>Fulfillment Date</th>
+		<% if admin_signed_in? %>
+			<th> </th>
+		<% end %>
 	</tr>
 	<% @requests.each do |request| %>
-		<% if request.fulfilled? %>
+		<% if request.fulfilled_on %>
 			<tr class="danger">
+		<% else %>
+			<tr>
 		<% end %>
 			<td><%= request.requester %></td>
 			<td><%= request.location %></td>
 			<td><%= request.item_number %></td>
 			<td><%= request.description %></td>
 			<td><%= request.created_at.strftime('%m/%d/%y') %></td>
+			<td><%= request.fulfilled_on.strftime('%m/%d/%y') unless request.fulfilled_on.nil? %></td>
+			<% if admin_signed_in? %>
+				<td> 
+					<%= form_tag("/requests/#{request.id}", method: "patch") do |f| %>
+						<%= hidden_field_tag :fulfilled_on, value = Date.current  %>
+						<%= submit_tag 'Done' %>
+					<% end %>
+				</td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>
