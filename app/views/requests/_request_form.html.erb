@@ -1,6 +1,6 @@
 <%= bootstrap_form_for @request, :remote => true, :authenticity_token => true do |f| %>
 	<%= f.text_field :requester, class: "form_content" %> 
-	<%= f.text_field :location, class: "form_content" %>
+	<%= f.select :location, [219, 811, 2540, 3712, 3255], :include_blank => true, class: "form-content" %>
 	<%= f.text_field :item_number, class: "form_content" %>
 	<%= f.text_field :description, class: "form_content" %>
 	<%= f.primary "Submit" %>
