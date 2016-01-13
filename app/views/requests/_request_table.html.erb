@@ -24,7 +24,7 @@
 			<td><%= request.fulfilled_on.strftime('%m/%d/%y') unless request.fulfilled_on.nil? %></td>
 			<% if admin_signed_in? %>
 				<td> 
-					<%= form_tag("/requests/#{request.id}", method: "patch") do |f| %>
+					<%= form_tag("/requests/#{request.id}", method: "patch", :remote => true) do |f| %>
 						<%= hidden_field_tag :fulfilled_on, value = Date.current  %>
 						<%= submit_tag 'Done' %>
 					<% end %>

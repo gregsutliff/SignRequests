@@ -27,8 +27,13 @@ class RequestsController < ApplicationController
     request.save
     @requests = Request.order(created_at: :desc)
     @request = Request.new
-    render "main"
+    respond_to do |format|
+      format.html
+      format.json
+      format.js
+    end
   end
+  
 
   private
 
